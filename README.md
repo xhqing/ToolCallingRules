@@ -1,4 +1,15 @@
-# Tool Calling Rules
+<p align="center">
+  <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=A professional minimalist logo for LLM tool calling rules project featuring geometric shield icon with checkmark symbol representing safety and precision dark blue and teal gradient clean tech style white background&image_size=square" alt="Tool Calling Rules Logo" width="200" />
+</p>
+
+<h1 align="center">Tool Calling Rules</h1>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Rules-22-blue?style=for-the-badge&logo=markdown" alt="Rules Count" />
+  <img src="https://img.shields.io/badge/Categories-7-orange?style=for-the-badge&logo=list" alt="Categories" />
+  <img src="https://img.shields.io/badge/License-PolyForm--Noncommercial-red?style=for-the-badge" alt="License" />
+  <img src="https://img.shields.io/badge/LLM-Compatible-brightgreen?style=for-the-badge&logo=openai" alt="LLM Compatible" />
+</p>
 
 A set of structured rules for LLM tool calling, designed to reduce parameter formatting errors, improve call accuracy, and enhance safety.
 

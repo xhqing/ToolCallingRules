@@ -1,4 +1,15 @@
-# 工具调用规则
+<p align="center">
+  <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=A professional minimalist logo for LLM tool calling rules project featuring geometric shield icon with checkmark symbol representing safety and precision dark blue and teal gradient clean tech style white background&image_size=square" alt="工具调用规则 Logo" width="200" />
+</p>
+
+<h1 align="center">工具调用规则</h1>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Rules-22-blue?style=for-the-badge&logo=markdown" alt="规则数量" />
+  <img src="https://img.shields.io/badge/Categories-7-orange?style=for-the-badge&logo=list" alt="类别" />
+  <img src="https://img.shields.io/badge/License-PolyForm--Noncommercial-red?style=for-the-badge" alt="许可证" />
+  <img src="https://img.shields.io/badge/LLM-Compatible-brightgreen?style=for-the-badge&logo=openai" alt="LLM兼容" />
+</p>
 
 一套用于LLM工具调用的结构化规则，旨在减少参数格式错误、提升调用准确性并增强安全性。
 

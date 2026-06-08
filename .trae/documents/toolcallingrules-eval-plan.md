@@ -1,4 +1,4 @@
-# 基于 Claude Code CLI 的工具调用规则端到端评测计划
+# 基于 TRAE IDE CN 的工具调用规则端到端评测计划
 
 ## 一、目标
 
@@ -36,26 +36,44 @@
 
 | 组别 | 系统提示词 | 其他条件 |
 |------|-----------|---------|
-| 对照组 (Control) | Claude Code 默认系统提示词 | 相同模型、相同任务 |
-| 实验组 (Treatment) | Claude Code 默认系统提示词 + toolCallingRules.md 追加 | 相同模型、相同任务 |
+| 对照组 (Control) | TRAE IDE CN 默认系统提示词 | 相同模型、相同任务、相同沙盒项目 |
+| 实验组 (Treatment) | TRAE IDE CN 默认系统提示词 + toolCallingRules.md 追加 | 相同模型、相同任务、相同沙盒项目 |
 
 ### 2.2 注入方式
 
-使用 Claude Code CLI 的 `--append-system-prompt` 参数追加规则，而非覆盖默认系统提示词，确保基础能力不受影响：
+使用 TRAE IDE CN 的 `.trae/rules/` 规则文件机制注入规则。TRAE IDE 会自动读取项目下 `.trae/rules/` 目录中的规则文件并注入到系统提示词中，确保基础能力不受影响：
+
+```
+ToolCallingRules/
+├── .trae/
+│   └── rules/
+│       └── toolCallingRules.md    ← TRAE IDE 自动加载此规则文件
+├── toolCallingRules.md            ← 规则源文件（与 .trae/rules/ 中内容一致）
+└── eval/
+    └── ...
+```
+
+**对照组**：将 `.trae/rules/` 目录清空或移除，确保无规则注入。
+
+**实验组**：将 `toolCallingRules.md` 复制到 `.trae/rules/toolCallingRules.md`，TRAE IDE 启动后会自动加载。
+
+通过 TRAE Agent API 或 Trae CLI 发送任务指令，获取完整的工具调用链 JSON 输出：
 
 ```bash
-# 对照组
-claude -p "<任务描述>" --output-format json
+# 实验组示例（使用 Trae CLI 或 Agent API）
+trae-agent --workspace "ToolCallingRules/" \
+  --prompt "<任务描述>" \
+  --output-format json
 
-# 实验组
-claude -p "<任务描述>" --append-system-prompt "$(cat toolCallingRules.md)" --output-format json
+# 对照组：同样的命令，但 .trae/rules/ 下无规则文件
 ```
 
 ### 2.3 可复现性保障
 
 - 每个任务运行 3 次，取多数结果
-- 固定 Claude Code CLI 版本
-- 记录每次运行的完整 JSON 输出
+- 固定 TRAE IDE CN 版本和模型版本
+- 记录每次运行的完整 JSON 输出（包含工具调用链和 Token 用量）
+- 确保沙盒环境在每次运行前重置到相同状态
 
 ## 三、测试任务设计
 
@@ -129,7 +147,7 @@ claude -p "<任务描述>" --append-system-prompt "$(cat toolCallingRules.md)" -
 
 ### 4.2 Token 与费用指标
 
-从 Claude Code CLI 的 JSON 输出中提取每次运行的 Token 用量，计算以下指标：
+从 TRAE Agent API 的 JSON 输出中提取每次运行的 Token 用量，计算以下指标：
 
 | 指标 | 计算方式 | 说明 |
 |------|---------|------|
@@ -139,9 +157,9 @@ claude -p "<任务描述>" --append-system-prompt "$(cat toolCallingRules.md)" -
 | 无效调用轮次 | 导致错误的工具调用次数 | 盲目重试、参数错误等 |
 | 规则注入开销 | toolCallingRules.md 的 Token 数 × 轮次数 | 每轮都需携带规则文本 |
 | 净节省 Token | (对照组总 Token - 实验组总 Token) - 规则注入开销 | 正值表示规则带来了净节省 |
-| 净节省费用 | 按 Claude API 定价折算净节省 Token 为金额 | 输入 Token 与输出 Token 价格不同，需分别计算 |
+| 净节省费用 | 按 TRAE IDE CN 使用的模型 API 定价折算净节省 Token 为金额 | 输入 Token 与输出 Token 价格不同，需分别计算 |
 
-**费用计算公式**（以 Claude Sonnet 为例）：
+**费用计算公式**（以评测期间实际使用的模型定价为准）：
 
 ```
 费用 = 输入 Token × 输入单价 + 输出 Token × 输出单价
@@ -190,14 +208,14 @@ claude -p "<任务描述>" --append-system-prompt "$(cat toolCallingRules.md)" -
 
 1. 在当前项目中创建 `eval/` 目录结构
 2. 准备测试用沙盒项目（包含各种文件类型和结构）
-3. 编写自动化运行脚本 `eval/run_eval.sh`
+3. 编写自动化运行脚本 `eval/run_eval.py`
 4. 编写评分脚本 `eval/score.py`
 
 ### 步骤 2：准备测试环境
 
 1. 创建临时沙盒目录（防止破坏真实文件）
 2. 在沙盒中创建模拟项目结构
-3. 验证 Claude Code CLI 可用且版本正确
+3. 验证 TRAE IDE CN 可用且版本正确，确认 `.trae/rules/` 规则加载机制正常工作
 
 ### 步骤 3：运行主实验
 
@@ -238,7 +256,7 @@ claude -p "<任务描述>" --append-system-prompt "$(cat toolCallingRules.md)" -
 # 工具调用规则评测报告
 
 ## 1. 评测概述
-- 评测日期、模型版本、Claude Code CLI 版本
+- 评测日期、模型版本、TRAE IDE CN 版本
 - 评测目标与实验设计简述
 
 ## 2. 主实验结果
@@ -283,8 +301,11 @@ ToolCallingRules/
 ├── README.md                      # 项目说明（已有）
 ├── README_cn.md                   # 项目说明中文版（已有）
 ├── toolCallingRules.md            # 规则文件（已有）
+├── .trae/
+│   └── rules/                     # TRAE IDE 规则目录（实验组运行时启用）
+│       └── toolCallingRules.md    # 规则注入文件（与根目录内容一致）
 ├── eval/                          # 评测模块
-│   ├── run_eval.sh                # 主运行脚本
+│   ├── run_eval.py                # 主运行脚本（Python）
 │   ├── score.py                   # 评分脚本
 │   ├── analyze.py                 # 分析与统计检验脚本
 │   ├── tasks.json                 # 测试任务定义
@@ -314,10 +335,10 @@ ToolCallingRules/
 ## 八、注意事项
 
 1. **成本控制**：15 任务 × 3 次 × 2 组 = 90 次调用，先小规模试跑估算 token 消耗
-2. **Token 计量**：确保 Claude Code CLI 的 JSON 输出中包含 Token 用量字段，如不包含需通过 API 层面单独计量
-3. **费用定价**：记录评测期间 Claude API 的实际定价（输入 Token 单价与输出 Token 单价），定价可能随时间变化
-4. **安全隔离**：所有任务在沙盒目录中运行，使用 `--allowedTools` 限制可用工具
-5. **版本固定**：记录 Claude Code CLI 版本，确保实验期间不更新
+2. **Token 计量**：确保 TRAE Agent API 的 JSON 输出中包含 Token 用量字段，如不包含需通过 API 层面单独计量
+3. **费用定价**：记录评测期间 TRAE IDE CN 使用的模型实际定价（输入 Token 单价与输出 Token 单价），定价可能随时间变化
+4. **安全隔离**：所有任务在沙盒目录中运行，通过 TRAE 工具权限配置限制可用工具
+5. **版本固定**：记录 TRAE IDE CN 版本和模型版本，确保实验期间不更新
 6. **结果可复现**：保存完整的 JSON 输出和评分过程，支持重新验证
 7. **报告输出**：最终评测结果以 MD 文档形式输出到 `eval/report/eval_report.md`，包含完整的数据表格、统计检验结果和结论建议
 8. **沙盒隔离**：`eval/sandbox/` 和 `eval/results/` 目录加入 `.gitignore`，避免测试产生的临时文件和大量 JSON 结果进入版本控制
