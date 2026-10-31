@@ -8,7 +8,13 @@
   <img src="https://img.shields.io/badge/Rules-22-blue?style=for-the-badge&logo=markdown" alt="Rules Count" />
   <img src="https://img.shields.io/badge/Categories-7-orange?style=for-the-badge&logo=list" alt="Categories" />
   <img src="https://img.shields.io/badge/License-PolyForm--Noncommercial-red?style=for-the-badge" alt="License" />
+  <img src="https://img.shields.io/badge/Version-1.0.0-blue?style=for-the-badge" alt="Version" />
+  <img src="https://img.shields.io/badge/Type-Project-lightgrey?style=for-the-badge" alt="Type" />
   <img src="https://img.shields.io/badge/LLM-Compatible-brightgreen?style=for-the-badge&logo=openai" alt="LLM Compatible" />
+</p>
+
+<p align="center">
+  <a href="README_cn.md">简体中文</a>
 </p>
 
 A set of structured rules for LLM tool calling, designed to reduce parameter formatting errors, improve call accuracy, and enhance safety.
@@ -45,6 +51,10 @@ You are a helpful assistant. When calling tools, follow these rules:
 
 The rule file (`toolCallingRules.md`) is written in Chinese.
 
-## License
+## License & Attribution
 
-PolyForm Noncommercial License 1.0.0
+Copyright (c) 2026 All Contributors. Licensed under the [PolyForm Noncommercial License 1.0.0](LICENSE.md) — commercial use is not permitted.
+
+Attribution is welcome and appreciated: you may reference, quote, or adopt these rules (with credit and a link back to this repository) as long as the copyright notice and this license are retained.
+
+- Project: https://github.com/xhqing/ToolCallingRules

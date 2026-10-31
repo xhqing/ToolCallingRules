@@ -8,7 +8,13 @@
   <img src="https://img.shields.io/badge/Rules-22-blue?style=for-the-badge&logo=markdown" alt="规则数量" />
   <img src="https://img.shields.io/badge/Categories-7-orange?style=for-the-badge&logo=list" alt="类别" />
   <img src="https://img.shields.io/badge/License-PolyForm--Noncommercial-red?style=for-the-badge" alt="许可证" />
+  <img src="https://img.shields.io/badge/Version-1.0.0-blue?style=for-the-badge" alt="版本" />
+  <img src="https://img.shields.io/badge/Type-Project-lightgrey?style=for-the-badge" alt="类型" />
   <img src="https://img.shields.io/badge/LLM-Compatible-brightgreen?style=for-the-badge&logo=openai" alt="LLM兼容" />
+</p>
+
+<p align="center">
+  <a href="README.md">English</a>
 </p>
 
 一套用于LLM工具调用的结构化规则，旨在减少参数格式错误、提升调用准确性并增强安全性。
@@ -45,6 +51,10 @@
 
 规则文件（`toolCallingRules.md`）使用中文编写。
 
-## 许可证
+## 版权与署名
 
-PolyForm 非商业许可证 1.0.0
+Copyright (c) 2026 All Contributors。本项目采用 [PolyForm 非商业许可证 1.0.0](LICENSE.md)，不允许商业使用。
+
+欢迎署名引用：你可以引用、摘录或在遵守许可的前提下采用这套规则（请注明出处并回链本仓库），保留版权声明与许可证即可。
+
+- 项目地址：https://github.com/xhqing/ToolCallingRules
