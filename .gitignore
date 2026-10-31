@@ -1,0 +1,10 @@
+# macOS
+.DS_Store
+._*
+
+# 临时产物
+tmp/
+*.tmp
+
+# 内部商业计划（变现策略 / 平台打法），不入库（同 AgentCortex 的 monetization-plan.md）
+quick-profit-plan.md

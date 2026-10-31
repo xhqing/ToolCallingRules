@@ -1,0 +1,1 @@
+../NeuralCoreAgent/AGENTS.md

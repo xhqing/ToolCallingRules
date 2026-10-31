@@ -1,0 +1,6 @@
+{
+  "extensions": ["~/Developer/NeuralCoreAgent/.pi/extensions", "./extensions"],
+  "skills": ["~/Developer/NeuralCoreAgent/.pi/skills", "./skills"],
+  "prompts": ["~/Developer/NeuralCoreAgent/.pi/prompts", "./prompts"],
+  "themes": ["~/Developer/NeuralCoreAgent/.pi/themes", "./themes"]
+}
