@@ -53,7 +53,7 @@
 
 ## 版权与署名
 
-Copyright (c) 2026 All Contributors。本项目采用 [PolyForm 非商业许可证 1.0.0](LICENSE.md)，不允许商业使用。
+Copyright (c) 2026 xhqing <https://github.com/xhqing>。本项目采用 [PolyForm 非商业许可证 1.0.0](LICENSE.md)，不允许商业使用。
 
 欢迎署名引用：你可以引用、摘录或在遵守许可的前提下采用这套规则（请注明出处并回链本仓库），保留版权声明与许可证即可。
 
