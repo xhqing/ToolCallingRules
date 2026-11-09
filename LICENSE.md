@@ -1,27 +1,21 @@
-# License
+MIT License
 
-## Copyright
+Copyright (c) 2026 xhqing and contributors
 
-Copyright 2026 xhqing and contributors. All rights reserved.
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-## License Terms
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
-This project is licensed under the **PolyForm Noncommercial License 1.0.0**.
-
-For the full license text, see the [PolyForm Project](https://polyformproject.org/licenses/noncommercial/1.0.0).
-
-### Summary
-
-The PolyForm Noncommercial License allows anyone to use, modify, and share this software for non-commercial purposes. Commercial use is not permitted under this license.
-
-For commercial use, please contact the copyright holder for separate licensing arrangements.
-
-### Key Points
-
-- **Allowed:** Personal use, research, education, and other non-commercial purposes
-- **Not Allowed:** Commercial use, selling the software, or using it in commercial products/services
-- **Required:** Include this license and copyright notice with any copies or substantial portions of the software
-
----
-
-**Note:** This is a human-readable summary of the license. The full legal text is available at the link above and takes precedence over this summary.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
