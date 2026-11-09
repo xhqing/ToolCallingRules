@@ -2,17 +2,15 @@
 
 Thank you for your interest in contributing to Tool Calling Rules! This document provides guidelines and instructions for contributing to this project.
 
-## License and Copyright Assignment
+## License and Copyright
 
 By contributing to this project, you agree to the following:
 
-1. **Non-Commercial License for Public Use**: Your contributions will be made available to the public under the **PolyForm Noncommercial License 1.0.0**.
+1. **You keep your copyright.** Copyright in your contribution stays with you. Opening a pull request does not transfer ownership to this project or to its maintainers.
 
-2. **Commercial Use Rights Granted to Maintainers**: You hereby grant the project maintainers an irrevocable, perpetual, worldwide, non-exclusive, royalty-free license to use, reproduce, modify, prepare derivative works of, distribute, sublicense, and sell your contributions for commercial purposes.
+2. **Your contribution is licensed under MIT.** You grant the project maintainers a perpetual, worldwide, non-exclusive, royalty-free licence to use, reproduce, modify, distribute and sublicense your contribution under the **MIT License**.
 
-3. **Sublicensing Rights**: You grant the project maintainers the right to sublicense your contributions to third parties, including for commercial use. This means maintainers can re-license your contributions under different terms (including commercial licenses) to other organizations or individuals.
-
-This dual-licensing approach allows the project to remain open and free for non-commercial use while enabling maintainers to pursue commercial opportunities with the project.
+3. **Everything stays open.** The whole project, including your contribution, is available to everyone under the MIT License, commercial use included.
 
 ## How to Contribute
 
