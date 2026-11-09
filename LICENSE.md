@@ -2,7 +2,7 @@
 
 ## Copyright
 
-Copyright 2026 xhqing <https://github.com/xhqing>. All rights reserved.
+Copyright 2026 xhqing and contributors. All rights reserved.
 
 ## License Terms
 

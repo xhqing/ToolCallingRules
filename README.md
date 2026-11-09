@@ -53,7 +53,7 @@ The rule file (`toolCallingRules.md`) is written in Chinese.
 
 ## License & Attribution
 
-Copyright (c) 2026 xhqing <https://github.com/xhqing>. Licensed under the [PolyForm Noncommercial License 1.0.0](LICENSE.md) — commercial use is not permitted.
+Copyright (c) 2026 xhqing and contributors. Licensed under the [PolyForm Noncommercial License 1.0.0](LICENSE.md) — commercial use is not permitted.
 
 Attribution is welcome and appreciated: you may reference, quote, or adopt these rules (with credit and a link back to this repository) as long as the copyright notice and this license are retained.
 
