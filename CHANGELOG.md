@@ -4,6 +4,12 @@
 
 ## [未发布]
 
+### 变更（角色口径改为 agentLeader / subLeader / Worker 三级，2026-11-25）
+
+- **为什么改**：用户 2026-11-25 把全团队 Leader / Worker 重定义为三级——agentLeader（Agent 项目主工作区 main）/ subLeader（子项目主工作区 main）/ Worker（任何项目的非 main 分支 worktree）。旧表述把本项目主工作区与 worktree 一律写成「Ada 派来的 Worker」，掩盖了本项目自身也有一层管理职责（local main 快进、建删 worktree、合并自身 PR、发版）。
+- **改了什么**（2026-11-25）：`AGENTS.md`「你的角色」节改写为两级并存——本项目主工作区 main 会话是 subLeader（只管本项目，对 NeuralCoreAgent 与兄弟子项目只读），本项目 worktree 会话是 Worker（不碰 local main、不建删 worktree）；建删 worktree 与 ff 同步 local main 归 subLeader，agentLeader（Ada）可代管；「项目规则在哪」表格行同步为「agentLeader / subLeader / Worker 三级分工」。
+- **边界**：只改角色表述，规则正文（`toolCallingRules.md` / `toolCallingRules_en.md`）、`.pi/APPEND_SYSTEM.md` 的硬约束与验证要求、其余文件均未动。
+
 ### 新增（`.pi/APPEND_SYSTEM.md`：Worker 会话的项目硬规则）
 
 - **为什么改**：用户 2026-11-07 定下全局 Leader / Worker 分工——子项目的具体活由以子项目根 / worktree 为工作目录的 Worker 会话承担，Leader 只做 local main 同步、建 worktree、派活与收尾。Worker 会话读不到 Agent 项目那一层的上下文，本仓特有的硬规则必须落在本仓，由 pi 在会话启动时自动追加进系统提示；否则 Worker 只能靠 Leader 口头交代，规则随任务结束即丢失。
